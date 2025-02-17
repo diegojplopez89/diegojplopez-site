@@ -1,96 +1,34 @@
-/* General Styles */
-body {
-    font-family: 'Georgia', serif;
-    background-color: #fdfaf5;
-    color: #3b322c;
-    margin: 0;
-    padding: 20px;
-}
-
-/* Header */
-header {
-    text-align: center;
-    padding: 20px;
-}
-
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #5c5345;
-    font-weight: bold;
-}
-
-/* Main Content */
-main {
-    max-width: 750px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-/* Intro Section */
-.about-intro h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #3b322c;
-}
-
-.about-intro p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-/* Details Section */
-.about-details {
-    font-size: 1.1rem;
-    line-height: 1.5;
-}
-
-/* Handwritten-style Annotations */
-.annotation {
-    font-family: 'Caveat', cursive;  /* Playful, handwritten font */
-    font-size: 1rem;
-    color: #b44c3b;
-    display: block;
-    margin-top: -10px;
-}
-
-/* Underline & Highlight Styling */
-.underline {
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
-}
-
-.highlight {
-    background-color: rgba(255, 235, 133, 0.5);
-    padding: 2px 4px;
-    border-radius: 4px;
-}
-
-/* Inline Emoji Styling */
-.emoji {
-    font-size: 1.3rem;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 0.9rem;
-    color: #5c5345;
-}
-<section class="about-intro">
-    <h2>Transforming people's lives through innovation, leadership, and resilience.</h2>
-    <p>
-        Diego J.P. Lopez is a dedicated humanitarian leader, strategist, and advocate committed to transforming lives through innovation, leadership, and resilience. 
-        <span class="emoji">🌱</span> 
-    </p>
-</section>
-
-<section class="about-details">
-    <p>
-        With a background in nonprofit operations, data systems, and community engagement, Diego continues to drive innovative solutions that uplift communities.
-        <span class="highlight">His approach is rooted in compassion</span>, strategy, and a relentless pursuit of meaningful impact.
-    </p>
-    <p class="annotation">* A work in progress, just like life ✨ *</p>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Diego J.P. Lopez</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>About Diego J.P. Lopez</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="experience.html">Experience</a>
+            <a href="media.html">Media</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section class="about-intro">
+            <h2>Transforming people's lives through innovation, leadership, and resilience.</h2>
+            <p>Diego J.P. Lopez is a dedicated humanitarian leader, strategist, and advocate committed to transforming people's lives through innovation, leadership, and resilience. With a proven track record in migration support, nonprofit management, and crisis response, he has worked at the intersection of policy, direct service, and organizational strategy to create sustainable, people-centered solutions.</p>
+        </section>
+        
+        <section class="about-details">
+            <p>With a background in nonprofit operations, data systems, and community engagement, Diego continues to drive innovative solutions that uplift communities and advance equitable support systems. His approach is rooted in <strong>compassion, strategy, and a relentless pursuit of meaningful impact</strong>.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Diego J.P. Lopez. All rights reserved.</p>
+    </footer>
+</body>
+</html>
