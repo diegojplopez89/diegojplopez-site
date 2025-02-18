@@ -29,20 +29,21 @@ nav ul {
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    display: inline-block;
+    margin: 0 20px; /* Increased spacing */
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    padding: 10px 15px; /* Added padding for click area */
 }
 
-nav ul li a:hover,
-nav ul li a.active {
+nav ul li a:hover {
     text-decoration: underline;
 }
+
 
 /* Main Content */
 main {
@@ -66,10 +67,14 @@ main {
 }
 
 .hero p {
+    color: #3b322c; /* Darker color for better contrast */
     font-size: 1.3rem;
     font-style: italic;
-    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Soft shadow for readability */
 }
+
 
 /* Call-to-Action Button */
 .cta-button {
@@ -103,16 +108,23 @@ main {
     background: linear-gradient(to right, #E85D04, #D4AF37);
     color: white;
     text-align: center;
+    padding: 60px 40px; /* Increased padding */
+    margin: 40px auto;
+    border-radius: 10px;
 }
+
 
 /* Footer */
 footer {
-    background: #222222;
+    background: linear-gradient(to right, #E85D04, #D4AF37); /* Match header */
     color: white;
-    padding: 20px 0;
     text-align: center;
-    margin-top: 40px;
+    padding: 20px 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
+
 
 .social-links a {
     color: #D4AF37;
