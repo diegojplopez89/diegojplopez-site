@@ -123,6 +123,16 @@ footer {
     width: 100%;
     position: absolute;
     bottom: 0;
+
+    <p>&copy; 2025 Diego Javier Piña Lopez</p>
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/diego-javier-piña-lopez-msw-mpa-39665853/" target="_blank">LinkedIn</a> |
+        <a href="https://www.facebook.com/Diegojplopez" target="_blank">Facebook</a> |
+        <a href="https://diegojplopez.bsky.social" target="_blank">Bluesky</a> |
+        <a href="https://www.threads.net/@diegojplopez?xmt=AQGzi-wsbwQcOrXpys-qar7cHu-Zr3T2Qp8uU5sC1Xs_aaM" target="_blank">Threads</a> |
+        <a href="mailto:diegojplopez@gmail.com">Email</a>
+    </div>
+
 }
 
 
