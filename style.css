@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     font-family: 'Georgia', serif;
-    background: url('assets/images/background.webp') no-repeat center center/cover, #fdfaf5;
+    background-image: url('/assets/Images/background.webp') no-repeat center center/cover, #fdfaf5;
     color: #3b322c;
     margin: 0;
     padding: 0;
