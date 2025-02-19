@@ -124,11 +124,12 @@ nav ul li a:hover {
 }
 
 .project img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 10px;
+    width: 100%; /* Ensures images take up the full width of their container */
+    height: 250px; /* Set a fixed height to make them uniform */
+    object-fit: cover; /* Ensures the images fill the space without distortion */
+    border-radius: 10px; /* Optional: keeps rounded corners for a polished look */
 }
+
 
 /* Contact Section */
 .contact-cta {
