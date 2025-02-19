@@ -1,12 +1,14 @@
 /* General Styles */
 body {
     font-family: 'Georgia', serif;
-    background-image: url('/assets/Images/background.webp') no-repeat center center/cover, #fdfaf5;
+    background: url('/assets/Images/background.webp') no-repeat center center/cover;
+    background-color: #fdfaf5; /* Set background color separately */
     color: #3b322c;
     margin: 0;
     padding: 0;
     text-align: center;
 }
+
 
 /* Header */
 header {
