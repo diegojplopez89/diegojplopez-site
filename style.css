@@ -30,20 +30,19 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin: 0 20px; /* Increased spacing */
+    margin: 0 20px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 15px; /* Added padding for click area */
+    padding: 10px 15px;
 }
 
 nav ul li a:hover {
     text-decoration: underline;
 }
-
 
 /* Main Content */
 main {
@@ -55,26 +54,44 @@ main {
 
 /* Hero Section */
 .hero {
-    background: url('assets/images/IMG_0795.jpeg') no-repeat center center/cover;
+    background: url('assets/images/background.jpeg') no-repeat center center/cover;
     color: white;
     padding: 120px 20px;
     text-align: center;
+    position: relative; /* Allows positioning of overlays */
 }
 
-.hero h2 {
+/* Hero Content */
+.hero-content {
+    display: flex;
+    flex-direction: column; /* Stack text and image */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Hero Text with Background for Readability */
+.hero-text {
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    color: #ffffff; /* Ensures readability */
+}
+
+/* Hero Title */
+.hero-text h2 {
     font-size: 2.5rem;
-    color: #D4AF37;
+    font-weight: bold;
 }
 
-.hero p {
-    color: #3b322c; /* Darker color for better contrast */
+/* Hero Subtitle */
+.hero-text p {
     font-size: 1.3rem;
     font-style: italic;
-    max-width: 800px;
-    margin: 0 auto;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Soft shadow for readability */
+    margin: 10px 0;
 }
-
 
 /* Call-to-Action Button */
 .cta-button {
@@ -92,52 +109,49 @@ main {
     background: #D44C00;
 }
 
-/* Sections */
-.about-preview,
-.projects-preview,
-.contact-cta {
-    background: white;
-    padding: 40px 50px;
-    margin: 40px auto;
-    max-width: 1200px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Hero Image */
+.hero-image img {
+    max-width: 50%; /* Ensures image scales properly */
+    height: auto;
+    display: block;
+    margin: 20px auto; /* Centers image */
+    border-radius: 10px; /* Adds a slight border rounding */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Gives depth */
 }
 
+/* Contact Section */
 .contact-cta {
     background: linear-gradient(to right, #E85D04, #D4AF37);
     color: white;
     text-align: center;
-    padding: 60px 40px; /* Increased padding */
+    padding: 60px 40px;
     margin: 40px auto;
     border-radius: 10px;
+}
+
+/* Ensure all project images have the same size */
+.project img {
+    width: 100%;  /* Makes images adjust to container */
+    max-width: 500px;  /* Set a max width for consistency */
+    height: 300px;  /* Set a fixed height for uniformity */
+    object-fit: cover;  /* Ensures the image fills the area without distortion */
+    border-radius: 10px;  /* Keeps consistent rounded edges */
+    display: block;
+    margin: 0 auto;  /* Centers the images */
 }
 
 
 /* Footer */
 footer {
-    background: linear-gradient(to right, #E85D04, #D4AF37); /* Match header */
+    background: linear-gradient(to right, #E85D04, #D4AF37);
     color: white;
     text-align: center;
     padding: 20px 0;
     width: 100%;
-    position: absolute;
-    bottom: 0;
-
-    <p>&copy; 2025 Diego Javier Piña Lopez</p>
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/diego-javier-piña-lopez-msw-mpa-39665853/" target="_blank">LinkedIn</a> |
-        <a href="https://www.facebook.com/Diegojplopez" target="_blank">Facebook</a> |
-        <a href="https://diegojplopez.bsky.social" target="_blank">Bluesky</a> |
-        <a href="https://www.threads.net/@diegojplopez?xmt=AQGzi-wsbwQcOrXpys-qar7cHu-Zr3T2Qp8uU5sC1Xs_aaM" target="_blank">Threads</a> |
-        <a href="mailto:diegojplopez@gmail.com">Email</a>
-    </div>
-
 }
 
-
 .social-links a {
-    color: #D4AF37;
+    color: #000000;
     text-decoration: none;
     font-weight: bold;
     margin: 0 10px;
