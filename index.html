@@ -19,20 +19,104 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>Join Diego on a Journey of Empathy, Discovery, and Creativity</h2>
-        <div class="hero-content">
-            <div class="hero-text">
-                <p>From the border community of Nogales, Arizona, to being invited to the White House for Hispanic Heritage Month, my journey has been defined by unwavering dedication to humanitarian leadership, strategic innovation, and advocacy.</p>
-                <a href="about.html" class="cta-button">Learn More</a>
+    <!-- Hero/Main Section -->
+    <main class="hero">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Diego Javier Piña Lopez Dedicated to Change, Driven by Purpose</h2>
+                    <p>From the border town of Nogales, Arizona, to the White House for Hispanic Heritage Month, Diego Javier Piña Lopez's journey is one of empathy, innovation, and unwavering advocacy. With a lifelong dedication to humanitarian leadership and social change, he continues to transform communities and inspire actio</p>
+                    <a href="about.html" class="cta-button">Explore My Story</a>
+                </div>
             </div>
             <div class="hero-image">
-                <img src="assets/Images/hero-image.jpeg" alt="Hero Image">
+                <img id="hero-slider" src="Images/Diego1.jpeg" alt="Hero Image">
             </div>
+        </section>
+        
+    </main>
+    <section class="featured">
+        <h2>Featured In</h2>
+        <div class="featured-logos">
+            <a href="https://www.npr.org/2024/03/21/1239814813/deal-is-reached-to-fund-homeland-security-department-arizona-monitors-its-progre" target="_blank">
+                <img src="assets/Media/npr.svg" alt="NPR">
+            </a>
+            <a href="https://news.azpm.org/p/news-articles/2024/3/1/219297-diocese-of-tucson-seeks-donations-to-continue-migrant-services-in-wake-of-funding-cliff/" target="_blank">
+                <img src="assets/Media/azpm.png" alt="AZPM">
+            </a>
+            <a href="https://www.tucsonsentinel.com/local/report/051324_shelter_skelter/border-shelters-stave-off-homelessness-steroids-but-funding-worries-remain/" target="_blank">
+                <img src="assets/Media/sentinel.png" alt="Tucson Sentinel">
+            </a>
+            <a href="https://www.nepm.org/2022-12-21/migrant-shelters-regroup-after-supreme-court-allows-title-42-to-stay-in-place" target="_blank">
+                <img src="assets/Media/nepr.webp" alt="NEPM">
+            </a>
+            <a href="https://www.kjzz.org/2024-02-21/content-1871936-pima-county-says-migrant-care-costs-1-million-week-losing-federal-funds-means" target="_blank">
+                <img src="assets/Media/ipm.webp" alt="KJZZ">
+            </a>
+            <a href="https://www.tucsondailynews.com/" target="_blank">
+                <img src="assets/Media/TucsonDailyStar.webp" alt="Tucson Daily Star">
+            </a>
+        </div>
+    
+    </div>
+
+    <!-- YouTube Video Thumbnails -->
+    <section class="featured-media">
+        <h2>Featured Media</h2>
+    
+        <!-- YouTube Video Thumbnails -->
+        <div class="featured-content">
+            <!-- YouTube Video 1 -->
+            <a href="https://www.youtube.com/watch?v=dnqnr9UeKvs" target="_blank">
+                <img src="https://img.youtube.com/vi/dnqnr9UeKvs/hqdefault.jpg" alt="YouTube Video 1">
+            </a>
+            
+            <!-- YouTube Video 2 -->
+            <a href="https://www.youtube.com/watch?v=5KhEz-qogps" target="_blank">
+                <img src="https://img.youtube.com/vi/5KhEz-qogps/hqdefault.jpg" alt="YouTube Video 2">
+            </a>
+        </div>
+        
+    
+        <!-- Spotify Podcast Embed (Starts at 38:35) -->
+        <div class="podcast-container">
+            <iframe src="https://open.spotify.com/embed/episode/3EWSx92Nyj6SxxKGCncnXM?t=2315" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
     </section>
-
+    
+    
+        <a href="projects.html" class="cta-button">Learn More</a>
+    </section>
+    
+    <script>
+        // List of hero images
+        const heroImages = [
+            "assets/Images/Diego1.jpeg",
+            "assets/Images/Diego2.jpeg",
+            "assets/Images/Diego3.jpeg",
+            "assets/Images/Diego4.jpeg",
+            "assets/Images/Diego5.jpeg",
+            "assets/Images/Diego7.jpeg"
+        ];
+    
+        let currentImageIndex = 0;
+        const heroSlider = document.getElementById("hero-slider");
+    
+        function changeHeroImage() {
+            heroSlider.style.opacity = 0; // Fade out effect
+    
+            setTimeout(() => {
+                currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+                heroSlider.src = heroImages[currentImageIndex];
+                heroSlider.style.opacity = 1; // Fade in effect
+            }, 500);
+        }
+    
+        // Change image every 5 seconds
+        setInterval(changeHeroImage, 5000);
+    </script>
+    
+    
     <footer>
         <h2>Let's Connect</h2>
         <p>Have a project idea, collaboration opportunity, or just want to chat?</p>
