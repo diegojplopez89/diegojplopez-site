@@ -2,33 +2,37 @@
 @media(max-width:950px){.header-inner{min-height:78px}.wordmark-detail{display:none}.primary-nav{gap:17px}.hero-grid,.story-grid,.biography-grid,.split-heading,.approach-grid,.contact-grid{gap:42px}.hero-portrait img{height:410px}.three-up,.media-grid{grid-template-columns:1fr 1fr}.three-up>article:last-child{grid-column:span 2}.project-case{gap:38px}.project-case h2{font-size:36px}}
 @media(max-width:720px){.container{width:calc(100% - 36px)}.section{padding:72px 0}.section-tight{padding-top:22px}.header-inner{min-height:74px}.menu-toggle{display:flex;align-items:center;gap:9px;border:0;background:none;color:var(--green);font-size:13px;font-weight:700}.menu-bars,.menu-bars::before,.menu-bars::after{display:block;width:19px;height:2px;background:var(--green);position:relative}.menu-bars::before,.menu-bars::after{content:"";position:absolute}.menu-bars::before{top:-6px}.menu-bars::after{top:6px}.primary-nav{display:none;position:absolute;top:74px;left:0;width:100%;padding:15px 20px 20px;background:var(--paper);border-bottom:1px solid var(--line)}.primary-nav.is-open{display:grid;gap:0}.primary-nav a{display:block;padding:11px 0}.home-hero{padding-top:75px}.hero-grid,.story-grid,.biography-grid,.split-heading,.approach-grid,.contact-grid,.project-case,.service-grid,.footer-grid{grid-template-columns:1fr}.hero-grid{gap:42px}.hero-copy h1{font-size:54px}.hero-portrait{max-width:440px;margin:0 auto;width:100%}.hero-portrait img{height:410px}.impact-grid{grid-template-columns:1fr 1fr;gap:28px}.three-up,.media-grid{grid-template-columns:1fr}.three-up>article:last-child{grid-column:auto}.story-grid{gap:38px}.story-grid figure img,.about-photo img{height:380px}.organization-list{gap:8px}.cta-panel{display:grid;padding:34px}.cta-panel h2{font-size:35px}.cta-panel .button{justify-self:start}.footer-grid{gap:30px}.footer-bottom{display:grid;gap:5px}.page-intro{padding-bottom:34px}.development-row{grid-template-columns:1fr;gap:16px}.project-stack{gap:70px}.project-case.reverse .case-main,.project-case.reverse figure{order:initial}.project-case figure{order:-1!important}.project-case figure img{height:280px}.service-card,.contact-primary{padding:27px}.recognition-list li{grid-template-columns:60px 1fr;gap:12px}.contact-note blockquote{font-size:28px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
-/* Sonoran warmth: desert sunrise, turquoise, adobe, and golden-hour light. */
+/* Sonoran Desert: saguaro greens, adobe clay, sandstone, and sunset skies. */
 :root {
-  --paper: #fff8ef;
-  --paper-deep: #f8ebda;
-  --surface: #fffdf8;
-  --ink: #253332;
-  --muted: #626d68;
-  --green: #176c63;
-  --green-deep: #105048;
-  --terracotta: #ce6243;
-  --ochre: #dfa53c;
-  --line: #ead8c3;
-  --turquoise: #47a49b;
-  --plum: #795267;
+  --paper: #fff5e8;
+  --paper-deep: #f1ddc6;
+  --surface: #fffaf3;
+  --ink: #382b24;
+  --muted: #74604f;
+  --green: #456246;
+  --green-deep: #314735;
+  --terracotta: #a44d38;
+  --ochre: #c28731;
+  --line: #e4cbb1;
+  --turquoise: #438f8d;
+  --plum: #83566d;
+  --sandstone: #e8c69d;
+  --adobe: #d98566;
+  --sunset: #e9a45b;
 }
 
 .site-header {
-  background: rgba(255, 248, 239, 0.96);
+  background: rgba(255, 245, 232, 0.97);
   border-bottom: 3px solid transparent;
-  border-image: linear-gradient(90deg, var(--terracotta), var(--ochre), var(--turquoise)) 1;
+  border-image: linear-gradient(90deg, var(--terracotta), var(--sunset), var(--ochre), var(--green), var(--turquoise)) 1;
 }
 
 .home-hero,
 .page-intro {
   background:
-    radial-gradient(ellipse at 84% 20%, rgba(223, 165, 60, 0.15), transparent 34%),
-    radial-gradient(ellipse at 8% 75%, rgba(71, 164, 155, 0.11), transparent 36%);
+    radial-gradient(ellipse at 90% 15%, rgba(233, 164, 91, 0.3), transparent 36%),
+    radial-gradient(ellipse at 12% 88%, rgba(69, 98, 70, 0.12), transparent 34%),
+    linear-gradient(135deg, rgba(255, 245, 232, 0.25), rgba(232, 198, 157, 0.17));
 }
 
 .hero-copy h1 span,
@@ -38,24 +42,24 @@
 
 .hero-tags li:nth-child(3n + 1),
 .organization-list span:nth-child(3n + 1) {
-  background: #fff0e8;
-  border-color: #efc7b7;
+  background: #f8e5db;
+  border-color: #ddb4a0;
 }
 
 .hero-tags li:nth-child(3n + 2),
 .organization-list span:nth-child(3n + 2) {
-  background: #edf6ed;
-  border-color: #c7ddca;
+  background: #e9eee1;
+  border-color: #bbc9ad;
 }
 
 .hero-tags li:nth-child(3n),
 .organization-list span:nth-child(3n) {
-  background: #fff5da;
-  border-color: #ead69c;
+  background: #faefd7;
+  border-color: #dec795;
 }
 
 .impact-strip {
-  background: linear-gradient(105deg, var(--green-deep) 0%, var(--green) 58%, #398a79 100%);
+  background: linear-gradient(108deg, #744736 0%, var(--terracotta) 53%, #985338 100%);
 }
 
 .feature-card,
@@ -66,11 +70,23 @@
   border-top: 4px solid var(--terracotta);
 }
 
+.feature-card:nth-child(3n + 1),
+.credential-card:nth-child(3n + 1),
+.service-card:nth-child(3n + 1) {
+  background: linear-gradient(165deg, #fffaf3 72%, #f9ece3 100%);
+}
+
 .feature-card:nth-child(3n + 2),
 .credential-card:nth-child(3n + 2),
 .service-card:nth-child(3n + 2),
 .media-card:nth-child(3n + 2) {
   border-top-color: var(--turquoise);
+}
+
+.feature-card:nth-child(3n + 2),
+.credential-card:nth-child(3n + 2),
+.service-card:nth-child(3n + 2) {
+  background: linear-gradient(165deg, #fffaf3 72%, #eef2e7 100%);
 }
 
 .feature-card:nth-child(3n),
@@ -80,9 +96,15 @@
   border-top-color: var(--ochre);
 }
 
+.feature-card:nth-child(3n),
+.credential-card:nth-child(3n),
+.service-card:nth-child(3n) {
+  background: linear-gradient(165deg, #fffaf3 72%, #f7ecd8 100%);
+}
+
 .story-band,
 .warm-surface {
-  background: linear-gradient(125deg, #f8ecdc 0%, #fff2df 52%, #f0efe2 100%);
+  background: linear-gradient(123deg, #f0dcc7 0%, #f8e4ce 47%, #eae6d3 100%);
 }
 
 .button-primary {
@@ -90,15 +112,15 @@
 }
 
 .button-primary:hover {
-  background: linear-gradient(125deg, var(--terracotta), #a94b36);
+  background: linear-gradient(125deg, var(--terracotta), #83412f);
 }
 
 .cta-panel {
-  background: linear-gradient(125deg, var(--green-deep) 0%, var(--green) 70%, var(--turquoise) 130%);
+  background: linear-gradient(125deg, #354731 0%, var(--green) 58%, #517469 105%);
 }
 
 .site-footer {
-  background: linear-gradient(120deg, #213731 0%, #31443c 70%, #504036 130%);
+  background: linear-gradient(120deg, #352a24 0%, #47382d 64%, #634338 125%);
 }
 
 .work-intro {
