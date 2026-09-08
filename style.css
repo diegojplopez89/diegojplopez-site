@@ -334,3 +334,90 @@ nav a[aria-current="page"] { color: var(--accent); }
   .hero-copy h1 { font-size: 3rem; }
   .section, .page-hero { padding-top: 3.5rem; }
 }
+
+@media print {
+  @page { margin: .55in .65in; }
+
+  body {
+    background: #fff;
+    color: #111;
+    font-size: 10.5pt;
+    line-height: 1.42;
+  }
+
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .button-row {
+    display: none !important;
+  }
+
+  .page-hero,
+  .content {
+    max-width: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .page-hero {
+    padding-top: 0;
+    padding-bottom: .25rem;
+  }
+
+  .page-hero h1 {
+    font-size: 24pt;
+    margin-bottom: .25rem;
+  }
+
+  .page-hero .lede {
+    font-size: 11pt;
+    color: #222;
+  }
+
+  .content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .content h2 {
+    font-size: 15pt;
+    margin-top: 1rem;
+    margin-bottom: .25rem;
+  }
+
+  .archive-item,
+  .card,
+  .source-box {
+    background: #fff;
+    box-shadow: none;
+    border-color: #bbb;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .archive-item {
+    padding: .65rem .8rem;
+    margin-bottom: .5rem;
+  }
+
+  .archive-item h2,
+  .archive-item h3 {
+    font-size: 12pt;
+  }
+
+  .tag-row { gap: .25rem; }
+  .tag {
+    padding: .1rem .4rem;
+    border-color: #aaa;
+    font-size: 8pt;
+  }
+
+  a,
+  a:visited {
+    color: #111;
+    text-decoration: none;
+  }
+
+  .source-box { display: none; }
+}
