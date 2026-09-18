@@ -1,0 +1,46 @@
+name: Notify IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'sitemap.xml'
+      - 'f7feadb4bf9e0f91e49dcd381e947601.txt'
+      - 'scripts/submit_indexnow.py'
+      - '.github/workflows/indexnow.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Submit URLs from this push
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          changed_files="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}")"
+          printf '%s\n' "$changed_files"
+
+          if printf '%s\n' "$changed_files" | grep -Eq '^(f7feadb4bf9e0f91e49dcd381e947601\.txt|scripts/submit_indexnow\.py|\.github/workflows/indexnow\.yml)$'; then
+            echo "IndexNow configuration changed; submitting the full sitemap once."
+            python scripts/submit_indexnow.py --all
+          else
+            python scripts/submit_indexnow.py \
+              --before "${{ github.event.before }}" \
+              --after "${{ github.sha }}"
+          fi
+
+      - name: Submit full sitemap manually
+        if: github.event_name == 'workflow_dispatch'
+        run: python scripts/submit_indexnow.py --all
