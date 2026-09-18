@@ -89,6 +89,9 @@ def submit(urls: list[str], *, dry_run: bool = False) -> int:
     except urllib.error.HTTPError as exc:
         code = exc.code
         body = exc.read().decode("utf-8", errors="replace")
+    except urllib.error.URLError as exc:
+        print(f"IndexNow request failed: {exc.reason}")
+        return 1
 
     print(f"IndexNow response: HTTP {code}")
     if body:
