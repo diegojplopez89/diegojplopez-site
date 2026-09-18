@@ -43,7 +43,7 @@ def url_for_repo_path(path: str) -> str | None:
 
 
 def changed_urls(before: str, after: str) -> list[str]:
-    cmd = ["git", "diff", "--name-only", before, after, "--", "*.html"]
+    cmd = ["git", "-c", f"safe.directory={ROOT.as_posix()}", "diff", "--name-only", before, after, "--", "*.html"]
     result = subprocess.run(cmd, cwd=ROOT, check=True, capture_output=True, text=True)
     urls = {url for line in result.stdout.splitlines() if (url := url_for_repo_path(line.strip()))}
     return sorted(urls)
