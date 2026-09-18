@@ -1,0 +1,100 @@
+name: Notify IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'sitemap.xml'
+      - 'f7feadb4bf9e0f91e49dcd381e947601.txt'
+      - 'scripts/submit_indexnow.py'
+      - '.github/workflows/indexnow.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Wait for GitHub Pages deployment
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs?head_sha=${GITHUB_SHA}&per_page=20"
+
+          for attempt in $(seq 1 96); do
+            response="$(curl --fail --silent --show-error \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "$api")"
+
+            state="$(printf '%s' "$response" | python -c 'import json,sys; d=json.load(sys.stdin); runs=[r for r in d.get("workflow_runs",[]) if r.get("name")=="pages build and deployment"]; print("success" if any(r.get("status")=="completed" and r.get("conclusion")=="success" for r in runs) else "failed" if any(r.get("status")=="completed" and r.get("conclusion") not in (None,"success") for r in runs) else "pending")')"
+
+            if [ "$state" = "success" ]; then
+              echo "GitHub Pages deployment succeeded for ${GITHUB_SHA}."
+              break
+            fi
+            if [ "$state" = "failed" ]; then
+              echo "GitHub Pages deployment failed for ${GITHUB_SHA}; refusing to submit stale URLs to IndexNow."
+              exit 1
+            fi
+            if [ "$attempt" -eq 96 ]; then
+              echo "Timed out waiting for GitHub Pages deployment for ${GITHUB_SHA}."
+              exit 1
+            fi
+            sleep 5
+          done
+
+      - name: Verify public IndexNow key
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected="f7feadb4bf9e0f91e49dcd381e947601"
+          key_url="https://diegojplopez.com/${expected}.txt"
+
+          for attempt in $(seq 1 12); do
+            body="$(curl --fail --silent --show-error --max-time 10 "$key_url" 2>/dev/null || true)"
+            body="$(printf '%s' "$body" | tr -d '\r\n')"
+            if [ "$body" = "$expected" ]; then
+              echo "Public IndexNow key verified."
+              exit 0
+            fi
+            sleep 5
+          done
+
+          echo "IndexNow key is not publicly available at the expected URL."
+          exit 1
+
+      - name: Submit URLs from this push
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          changed_files="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}")"
+          printf '%s\n' "$changed_files"
+
+          if printf '%s\n' "$changed_files" | grep -Eq '^(sitemap\.xml|f7feadb4bf9e0f91e49dcd381e947601\.txt|scripts/submit_indexnow\.py|\.github/workflows/indexnow\.yml)$'; then
+            echo "IndexNow configuration or sitemap changed; submitting the full sitemap once."
+            python scripts/submit_indexnow.py --all
+          else
+            python scripts/submit_indexnow.py \
+              --before "${{ github.event.before }}" \
+              --after "${{ github.sha }}"
+          fi
+
+      - name: Submit full sitemap manually
+        if: github.event_name == 'workflow_dispatch'
+        run: python scripts/submit_indexnow.py --all
