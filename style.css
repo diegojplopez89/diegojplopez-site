@@ -6,7 +6,7 @@
   --line: #dedbd3;
   --accent: #9a3f16;
   --accent-dark: #6f2d10;
-  --gold: #a77924;
+  --gold: #86611d;
   --max: 1160px;
 }
 
@@ -81,7 +81,8 @@ nav a {
   font-weight: 700;
 }
 nav a:hover,
-nav a[aria-current="page"] { color: var(--accent); }
+nav a[aria-current="page"],
+.site-header nav a[aria-current="location"] { color: var(--accent); }
 
 .hero-new {
   max-width: var(--max);
@@ -421,3 +422,25 @@ nav a[aria-current="page"] { color: var(--accent); }
 
   .source-box { display: none; }
 }
+
+/* Consistent navigation, keyboard access, and balanced resume cards. */
+.brand { flex-shrink: 0; }
+.site-header nav a { white-space: nowrap; }
+.site-header nav a[aria-current] { text-decoration: underline; text-underline-offset: .35em; }
+:where(a, button, summary, input, textarea, select):focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.site-footer a:focus-visible { outline-color: #fff; }
+#main { scroll-margin-top: 6rem; }
+.site-footer .footer-links { justify-content: flex-start; }
+.site-footer .footer-links a { color: #fff; }
+.resume-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.resume-grid .card { display: flex; flex-direction: column; }
+.resume-grid .card h2 { margin: .5rem 0 .75rem; font-size: 1.65rem; line-height: 1.2; }
+.resume-grid .card p:last-child { margin-top: auto; padding-top: .5rem; }
+@media (max-width: 850px) {
+  .resume-grid { grid-template-columns: 1fr; }
+  .site-header .nav-wrap { gap: .5rem; }
+  .site-header nav { gap: .15rem 1rem; }
+  .site-header nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  #main { scroll-margin-top: 12rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
